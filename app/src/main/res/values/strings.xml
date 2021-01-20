@@ -18,4 +18,5 @@
     <string name="example">ПРИМЕР РАССЧЕТА ЗАЙМА</string>
     <string name="age">Возраст</string>
     <string name="facebook_app_id">182352746762135</string>
+    <string name="zaim_do">Займ Do</string>
 </resources>

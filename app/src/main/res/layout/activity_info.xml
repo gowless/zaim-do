@@ -25,9 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/circe_bold"
-        android:text="Кот Кредит"
-        android:textColor="@color/main_text_color"
-        android:textSize="16sp"
+        android:text="@string/zaim_do"
+        android:textColor="@color/ic_launcher_background"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline34"
         app:layout_constraintStart_toStartOf="@+id/guideline18"
         app:layout_constraintTop_toTopOf="parent" />

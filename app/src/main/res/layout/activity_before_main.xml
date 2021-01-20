@@ -22,9 +22,9 @@
             android:fontFamily="@font/circe_bold"
             android:gravity="left"
             android:padding="2dp"
-            android:text="Кот Кредит"
-            android:textColor="@color/main_text_color"
-            android:textSize="16sp"
+            android:text="@string/zaim_do"
+            android:textColor="@color/ic_launcher_background"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline5"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline6"
@@ -36,12 +36,12 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:clickable="true"
-            android:padding="7dp"
+            android:padding="5dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline5"
             app:layout_constraintEnd_toStartOf="@+id/guideline7"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
             app:layout_constraintTop_toTopOf="@+id/guideline3"
-            app:srcCompat="@drawable/info_tab"
+            app:srcCompat="@drawable/info_button_selector"
             tools:ignore="VectorDrawableCompat" />
 
         <androidx.constraintlayout.widget.Guideline

@@ -46,12 +46,18 @@ class Splash : AppCompatActivity() {
         lateinit var listDataAll: List<Listoffers>
         lateinit var listDataBad: List<Listoffers>
         lateinit var listDataZero: List<Listoffers>
+
+        var iteratedListZero: MutableList<Listoffers> = mutableListOf<Listoffers>()
+        var iteratedListBad: MutableList<Listoffers> = mutableListOf<Listoffers>()
     }
 
     @SuppressLint("CommitPrefEdits")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+
+
+
         val settings = getSharedPreferences("LOCAL", Context.MODE_PRIVATE)
         editor = settings.edit()
 
@@ -92,6 +98,33 @@ class Splash : AppCompatActivity() {
                     numberOfTabs = response.body()!!.categories.size
                     listDataBad = response.body()!!.listoffers
                     listDataZero = response.body()!!.listoffers
+
+
+                    //iterator for 2-nd tab (new list)
+                    val x: Iterator<Listoffers> = listDataZero.listIterator()
+                    while (x.hasNext()) {
+                        val s: Listoffers = x.next()
+                        if (s.categories.contains("zero")) {
+                            iteratedListZero.add(s)
+                        } else {
+                            //x.remove();
+                        }
+                    }
+
+
+
+                    //iterator for 3-rd tab (bad list)
+                    val i: Iterator<Listoffers> = listDataBad.listIterator()
+                    while (i.hasNext()) {
+                        val m: Listoffers = i.next()
+                        if (m.categories.contains("badCreditHistory")) {
+                            iteratedListBad.add(m)
+                        } else {
+                            //  i.remove();
+                        }
+                    }
+
+
                     when (numberOfTabs) {
                         0 -> {
                         }
@@ -149,7 +182,7 @@ class Splash : AppCompatActivity() {
                         }
                     }
                     //open MainActivity
-                    getCloak()
+                    getBeforeMain()
                 }
             }
 

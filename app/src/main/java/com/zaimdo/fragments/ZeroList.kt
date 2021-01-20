@@ -23,7 +23,7 @@ class ZeroList : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_zero_list, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
-        val adapterZeroList = ZeroListAdapter(Splash.listDataAll)
+        val adapterZeroList = ZeroListAdapter(Splash.iteratedListZero)
         recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         recyclerView.adapter = adapterZeroList
         return view;

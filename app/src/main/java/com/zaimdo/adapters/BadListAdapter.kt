@@ -72,7 +72,7 @@ class BadListAdapter(private val data: List<Listoffers>) :
         holder.firstCreditSum.text = data[position].amount.to.toString()
 
         //setting image holder with glide
-        Glide.with(Activity())
+        Glide.with(holder.itemView.context)
             .load(data[position].img)
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(p0: GlideException?, p1: Any?, p2: Target<Drawable>?, p3: Boolean): Boolean {

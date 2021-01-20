@@ -1,6 +1,7 @@
 package com.kotlin_base_dev.uiactivities
 
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.ConnectivityManager.NetworkCallback
 import android.net.Network
@@ -8,6 +9,8 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
+import android.view.ViewGroup.MarginLayoutParams
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -47,6 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
     //recyclerview
     var recyclerView: RecyclerView? = null
 
@@ -82,6 +86,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d("TASG", "test")
+
+        //getting prefs
+        getPrefs()
+
         //declaring vars
         setDeclaring()
 
@@ -97,12 +105,29 @@ class MainActivity : AppCompatActivity() {
             setNonEthernetCase()
         }
 
+        progressBar!!.isIndeterminate = false
+        progressBar!!.visibility = View.GONE
+
+        for (i in 0 until tabLayout!!.tabCount) {
+            val tab = (tabLayout!!.getChildAt(0) as ViewGroup).getChildAt(i)
+            val p = tab.layoutParams as MarginLayoutParams
+            p.setMargins(0, 0, 10, 0)
+            tab.requestLayout()
+        }
+
+        //on click info listener
+        infoTabIcon?.setOnClickListener{
+            startActivity(Intent(this@MainActivity, Info::class.java))
+        }
+
     }
 
     // declaring main objects
     private fun setDeclaring() {
         //textview and image of non-inherent case
         textView = findViewById(R.id.text_non_Ithernet)
+
+        infoTabIcon = findViewById(R.id.info_tab_icon)
 
         imageView = findViewById(R.id.non_Ithernet)
         //recyclerview
@@ -171,8 +196,7 @@ class MainActivity : AppCompatActivity() {
 
     //getprefs
     private fun getPrefs() {
-        val settings =
-            getSharedPreferences("LOCAL", Context.MODE_PRIVATE)
+        val settings = getSharedPreferences("LOCAL", Context.MODE_PRIVATE)
         net = settings.getString("network", "")!!
         cam = settings.getString("campaign", "")!!
         adg = settings.getString("adgroup", "")!!

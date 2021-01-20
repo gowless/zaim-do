@@ -63,7 +63,6 @@
         <item name="colorPrimaryDark">#04A60A</item>
         <item name="colorAccent">#149E3E</item>
         <item name="android:windowBackground">@color/ic_launcher_background</item>
-
         <item name="android:navigationBarColor" tools:targetApi="lollipop">
             @color/ic_launcher_background
         </item>

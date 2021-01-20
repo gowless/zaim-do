@@ -1,6 +1,5 @@
 package com.kotlin_base_dev.adapters
 
-import android.app.Activity
 import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.LayoutInflater
@@ -73,7 +72,7 @@ class AllOffersAdapter(private val data: List<Listoffers>) :
         holder.firstCreditSum.text = data[position].amount.to.toString()
 
         //setting image holder with glide
-        Glide.with(Activity())
+        Glide.with(holder.itemView.context)
             .load(data[position].img)
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(p0: GlideException?, p1: Any?, p2: Target<Drawable>?, p3: Boolean): Boolean {
@@ -110,7 +109,11 @@ class AllOffersAdapter(private val data: List<Listoffers>) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
+        return if (data[position].top) {
+            1
+        } else {
+            2
+        }
     }
 
 

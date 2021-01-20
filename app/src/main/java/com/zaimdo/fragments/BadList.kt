@@ -24,7 +24,7 @@ class BadList : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_with_bad_list, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
-        val adapterAllMain = AllOffersAdapter(Splash.listDataAll)
+        val adapterAllMain = AllOffersAdapter(Splash.iteratedListBad)
         recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         recyclerView.adapter = adapterAllMain
 
